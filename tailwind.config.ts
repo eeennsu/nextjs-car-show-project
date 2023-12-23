@@ -1,6 +1,10 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  corePlugins: {
+    preflight: false,
+  },
+  important: 'body',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,8 +17,11 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      screens: {
+        '3xl': '1600px'
+      }
     },
   },
   plugins: [],
 }
-export default config
+export default config;

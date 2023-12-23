@@ -1,15 +1,19 @@
-import type { FC, DetailedHTMLProps, ButtonHTMLAttributes, PropsWithChildren } from 'react';
+'use client';
 
-type ButtonProps = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+import type { FC, PropsWithChildren } from 'react';
+import { Button as MuiButton } from '@mui/material';
 
-const Button: FC<PropsWithChildren<ButtonProps>> = ({ children, className, ...btnProps }) => {
+type Props = {
+    onClick: () => void;
+    size?: 'large' | 'medium' | 'small';
+}
 
-    const _className = ['', className].join(' ');
-
+const Button: FC<PropsWithChildren<Props>> = ({ children, onClick, size = 'medium' }) => {
+    
     return (
-        <button {...btnProps} className='px-6 py-2 font-light text-white transition-colors rounded-full bg-black/90 hover:bg-black/70 active:bg-black'>
+        <MuiButton className='font-light text-white bg-black/90 hover:bg-black/60 shadow-sm' variant='contained' size={size} onClick={onClick}>
             {children}
-        </button>
+        </MuiButton>
     );
 }
 
