@@ -17,12 +17,14 @@
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/toastr": "^2.1.43",
     "autoprefixer": "^10.0.1",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",

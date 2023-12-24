@@ -3,9 +3,13 @@ import type { FC } from 'react';
 import NoResult from './NoResult';
 import CarCard from './CarCard';
 
-const Cars: FC = async () => {
+type Props = {
+    searchParams: CarSearchParams;
+}
 
-    const response = await fetchCars();
+const Cars: FC<Props> = async ({ searchParams }) => {
+
+    const response = await fetchCars(searchParams);
     const cars = response?.length === 0 ? dummy : response;
     const isDataEmpty = !Array.isArray(cars) || cars?.length === 0 || !cars;
 
@@ -15,11 +19,11 @@ const Cars: FC = async () => {
                 isDataEmpty ? (
                     <NoResult />                  
                 ) : (
-                    <div className='grid w-full grid-cols-1 gap-8 px-10 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 pt-14 max-sm:px-6'>
+                    <div className='grid w-full grid-cols-1 gap-8 px-10 pt-14 lg:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 max-sm:px-3'>
                         {
-                           cars?.map((car) => (
+                            cars?.map((car) => (
                                 <CarCard key={`${car.city_mpg} ${car.class} ${car.combination_mpg} ${car.cylinders} ${car.drive} ${car.displacement} ${car.transmission} ${car.year}`} car={car} />
-                           )) 
+                            )) 
                         }
                     </div>
                 )
@@ -45,7 +49,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'a',
-        'year': 1993
+        'year': 1999
     },
     {
         'city_mpg': 23,
@@ -59,7 +63,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'm',
-        'year': 1993
+        'year': 2007
     },
     {
         'city_mpg': 23,
@@ -73,7 +77,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'a',
-        'year': 1993
+        'year': 2014
     },
     {
         'city_mpg': 23,
@@ -87,7 +91,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'm',
-        'year': 1993
+        'year': 1995
     },
     {
         'city_mpg': 23,
@@ -101,7 +105,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla wagon',
         'transmission': 'a',
-        'year': 1993
+        'year': 2009
     },
     {
         'city_mpg': 23,
@@ -115,9 +119,8 @@ const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'a',
-        'year': 1993
+        'year': 2023
     },
-    // 이어서 추가되는 11개의 더미 데이터
     {
         'city_mpg': 22,
         'class': 'compact car',
@@ -130,7 +133,7 @@ const dummy = [
         'make': 'honda',
         'model': 'civic',
         'transmission': 'm',
-        'year': 1995
+        'year': 2018
     },
     {
         'city_mpg': 20,
@@ -144,7 +147,7 @@ const dummy = [
         'make': 'subaru',
         'model': 'outback',
         'transmission': 'a',
-        'year': 2000
+        'year': 2003
     },
     {
         'city_mpg': 18,
@@ -158,7 +161,7 @@ const dummy = [
         'make': 'chevrolet',
         'model': 'impala',
         'transmission': 'a',
-        'year': 2010
+        'year': 2011
     },
     {
         'city_mpg': 25,
@@ -172,7 +175,7 @@ const dummy = [
         'make': 'toyota',
         'model': 'prius',
         'transmission': 'cvt',
-        'year': 2015
+        'year': 2012
     },
     {
         'city_mpg': 21,

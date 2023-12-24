@@ -38,16 +38,16 @@ const SearchManufacturer: FC<Props> = ({ manufacturer, setManufacturer }) => {
         <>
             <Combobox value={manufacturer} onChange={handleManufactuererVal}>             
                 <div className='relative flex flex-col justify-center w-full'>
-                    <div className='flex w-full'>
-                        <Combobox.Button className='mr-4 bg-inherit'>
+                    <div className='flex items-center w-full'>
+                        <span className='mr-3 bg-inherit'>
                             <TbBrandFlickr className='flex items-center justify-center w-5 h-5 bg-inherit bg-slate-300' />
-                        </Combobox.Button>                    
+                        </span>                    
                         <Combobox.Input 
                             displayValue={(item: string) => item}
                             onChange={handleQuery}    
                             as={Fragment}                                                    
                         >
-                            <MuiInput className='w-full rounded-full py-0.5' placeholder='Volkswagen...' value={manufacturer} onChange={handleManufactuererInput} />
+                            <MuiInput className='w-full rounded-full py-0.5 bg-slate-300' name='manufacturer' placeholder='Volkswagen...' value={manufacturer} onChange={handleManufactuererInput} />
                         </Combobox.Input>   
                     </div>                     
                     <Transition

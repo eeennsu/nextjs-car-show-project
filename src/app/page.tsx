@@ -3,13 +3,17 @@ import Hero from '@/components/feature/root/main/Hero';
 import Catalogue from '@/components/feature/root/main/Catalogue';
 import Cars from '@/components/feature/root/main/Cars';
 
-const RootPage: NextPage = () => {
+type Props = {
+    searchParams: CarSearchParams;
+}
+
+const RootPage: NextPage<Props> = ({ searchParams }) => {
 
     return (
         <>
             <Hero />
             <Catalogue />
-            <Cars />
+            <Cars searchParams={searchParams} />
         </>
     );
 };

@@ -12,3 +12,11 @@ type Car = {
     transmission: string;
     year: number;
 }
+
+type CarSearchParams = {
+    manufacturer?: string;
+    year?: string;
+    fuel?: string;
+    limit?: string;
+    model?: string;
+}

@@ -5,8 +5,8 @@ import CustomFilter from './CustomFilter';
 const Catalogue: FC = () => {
 
     return (
-        <section id='explore' className='lg:-mt-36'>
-            <div>
+        <section id='explore' className='pt-8 lg:-mt-20'>
+            <div className='max-sm:text-center'>
                 <h2 className='text-2xl lg:text-4xl'>
                     Car Catalogue
                 </h2>
@@ -14,7 +14,7 @@ const Catalogue: FC = () => {
                     Exlore the cars you might like
                 </p>
             </div>
-            <div className='flex items-center justify-between w-full mt-12'>
+            <div className='flex flex-col items-center justify-between w-full mt-12 md:flex-row'>
                 <SearchBar />
                 <div className='flex flex-wrap items-center justify-start gap-2'>
                     <CustomFilter title='fuel' />

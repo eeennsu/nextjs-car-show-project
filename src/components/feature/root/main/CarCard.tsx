@@ -58,7 +58,7 @@ const CarCard: FC<Props> = ({ car }) => {
                 </p>
             </div>            
             <div className='relative object-contain w-full h-40 mt-10'>
-                <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
+                <Image src={generateCarImageUrl(car)} alt='car model' fill priority sizes='100%' className='object-contain' />
             </div>
             <div className='relative flex w-full'>
                 <div className='flex justify-between w-full px-3 py-2 transition-opacity duration-75 rounded-lg group-hover:opacity-0 text-grey bg-slate-400/55'>
