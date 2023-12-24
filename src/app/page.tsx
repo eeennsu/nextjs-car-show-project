@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Hero from '@/components/feature/root/main/Hero';
 import Catalogue from '@/components/feature/root/main/Catalogue';
+import Cars from '@/components/feature/root/main/Cars';
 
 const RootPage: NextPage = () => {
 
@@ -8,6 +9,7 @@ const RootPage: NextPage = () => {
         <>
             <Hero />
             <Catalogue />
+            <Cars />
         </>
     );
 };

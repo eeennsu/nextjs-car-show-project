@@ -5,7 +5,7 @@ import CustomFilter from './CustomFilter';
 const Catalogue: FC = () => {
 
     return (
-        <section id='discover' className='mt-12 padding max'>
+        <section id='explore' className='lg:-mt-36'>
             <div>
                 <h2 className='text-2xl lg:text-4xl'>
                     Car Catalogue
