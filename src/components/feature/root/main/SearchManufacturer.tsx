@@ -35,63 +35,61 @@ const SearchManufacturer: FC<Props> = ({ manufacturer, setManufacturer }) => {
     ));
 
     return (
-        <>
-            <Combobox value={manufacturer} onChange={handleManufactuererVal}>             
-                <div className='relative flex flex-col justify-center w-full'>
-                    <div className='flex items-center w-full'>
-                        <span className='mr-3 bg-inherit'>
-                            <TbBrandFlickr className='flex items-center justify-center w-5 h-5 bg-inherit bg-slate-300' />
-                        </span>                    
-                        <Combobox.Input 
-                            displayValue={(item: string) => item}
-                            onChange={handleQuery}    
-                            as={Fragment}                                                    
-                        >
-                            <MuiInput className='w-full rounded-full py-0.5 bg-slate-300' name='manufacturer' placeholder='Volkswagen...' value={manufacturer} onChange={handleManufactuererInput} />
-                        </Combobox.Input>   
-                    </div>                     
-                    <Transition
-                        as={'div'}                
-                        leave='transition ease-in duration-100'                      
-                        leaveFrom='opacity-100'
-                        leaveTo='opacity-0'
-                        className='ml-7'
-                        afterLeave={initQuery}
+        <Combobox value={manufacturer} onChange={handleManufactuererVal}>             
+            <div className='relative flex flex-col justify-center w-full'>
+                <div className='flex items-center w-full'>
+                    <span className='mr-3 bg-inherit'>
+                        <TbBrandFlickr className='flex items-center justify-center w-5 h-5 bg-inherit bg-slate-300' />
+                    </span>                    
+                    <Combobox.Input 
+                        displayValue={(item: string) => item}
+                        onChange={handleQuery}    
+                        as={Fragment}                                                    
                     >
-                        {
-                            query !== '' && (
-                                <Combobox.Options className='absolute z-10 flex flex-col w-full gap-y-0.5 px-1 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg top-10 absoulte max-h-36 lg:max-h-56 ring ring-black ring-opacity-5 focus:outline-none sm:text-sm max-w-72'>
-                                    {
-                                        (filteredManufactures?.length === 0 && query !== '') ? (
-                                            <Combobox.Option className='px-2' value={query}>
-                                                Create &quot;{query}&ldquo;
-                                            </Combobox.Option>
-                                        ) : filteredManufactures?.map((item) => (
-                                            <Combobox.Option key={item} className={({ active }) => `relative ${active ? 'bg-gray-600 text-white' : 'text-black'}`} value={item}>
-                                                {
-                                                    ({ selected, active }) => (
-                                                        <div className='px-2 cursor-pointer'>
-                                                            <span className={`block truncate ${selected ? 'font-bold' : 'font-semibold'}`}>
-                                                                {item}
-                                                            </span>
-                                                            {
-                                                                selected ? (
-                                                                    <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-purple-500'}`} />
-                                                                ) : null
-                                                            }
-                                                        </div>
-                                                    )
-                                                }
-                                            </Combobox.Option>
-                                        ))                    
-                                    }
-                                </Combobox.Options>
-                            )
-                        }
-                    </Transition>                   
-                </div>
-            </Combobox>            
-        </>
+                        <MuiInput className='w-full rounded-full py-0.5 bg-slate-300' name='manufacturer' placeholder='Volkswagen...' value={manufacturer} onChange={handleManufactuererInput} />
+                    </Combobox.Input>   
+                </div>                     
+                <Transition
+                    as={'div'}                
+                    leave='transition ease-in duration-100'                      
+                    leaveFrom='opacity-100'
+                    leaveTo='opacity-0'
+                    className='ml-7'
+                    afterLeave={initQuery}
+                >
+                    {
+                        query !== '' && (
+                            <Combobox.Options className='absolute z-10 flex flex-col w-full gap-y-0.5 px-1 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg top-10 absoulte max-h-36 lg:max-h-56 ring ring-black ring-opacity-5 focus:outline-none sm:text-sm max-w-72'>
+                                {
+                                    (filteredManufactures?.length === 0 && query !== '') ? (
+                                        <Combobox.Option className='px-2' value={query}>
+                                            Create &quot;{query}&ldquo;
+                                        </Combobox.Option>
+                                    ) : filteredManufactures?.map((item) => (
+                                        <Combobox.Option key={item} className={({ active }) => `relative ${active ? 'bg-gray-600 text-white' : 'text-black'}`} value={item}>
+                                            {
+                                                ({ selected, active }) => (
+                                                    <div className='px-2 cursor-pointer'>
+                                                        <span className={`block truncate ${selected ? 'font-bold' : 'font-semibold'}`}>
+                                                            {item}
+                                                        </span>
+                                                        {
+                                                            selected ? (
+                                                                <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-purple-500'}`} />
+                                                            ) : null
+                                                        }
+                                                    </div>
+                                                )
+                                            }
+                                        </Combobox.Option>
+                                    ))                    
+                                }
+                            </Combobox.Options>
+                        )
+                    }
+                </Transition>                   
+            </div>
+        </Combobox>            
     );
 }
 

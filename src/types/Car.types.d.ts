@@ -20,3 +20,8 @@ type CarSearchParams = {
     limit?: string;
     model?: string;
 }
+
+type FilterOption = {
+    title: string;
+    value: string;
+}

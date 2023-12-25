@@ -12,7 +12,7 @@ type Props = {
 const Button: FC<PropsWithChildren<Props>> = ({ children, onClick, className, size = 'medium' }) => {
     
     return (
-        <MuiButton className={`font-light text-white bg-black/90 hover:bg-black/75 shadow-sm ${className}`} variant='contained' size={size} onClick={onClick}>
+        <MuiButton className={`font-[350] text-white bg-black/90 hover:bg-white/70 hover:text-black shadow-sm ${className}`} variant='contained' size={size} onClick={onClick}>
             {children}
         </MuiButton>
     );

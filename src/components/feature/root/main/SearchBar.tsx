@@ -2,18 +2,22 @@
 
 import type { FC, ChangeEvent } from 'react';
 import { Input } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { TbSearch } from "react-icons/tb";
 import { FaCar } from "react-icons/fa";
+import { useSearchParams } from 'next/navigation';
 import SearchManufacturer from './SearchManufacturer';
 import toastr from '@/lib/toaster';
 
+// client component
 const SearchBar: FC = () => {
 
     const [manufacturer, setManufacturer] = useState<string>('');
     const [model, setModel] = useState<string>('');
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
 
     const handleSearch = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -23,23 +27,23 @@ const SearchBar: FC = () => {
             return;
         }
 
-        const searchParams = new URLSearchParams(location.search);
+        const params = new URLSearchParams(searchParams);
 
-        if (manufacturer) {
-            searchParams.set('manufacturer', manufacturer.trim().toLowerCase());
+        if (manufacturer && manufacturer !== '') {
+            params.set('manufacturer', manufacturer.trim().toLowerCase());
         } else {
-            searchParams.delete('manufacturer');
+            params.delete('manufacturer');
         }
         
-        if (model) {
-            searchParams.set('model', model.trim().toLowerCase());
+        if (model && model !== '') {
+            params.set('model', model.trim().toLowerCase());
         } else {
-            searchParams.delete('model');
+            params.delete('model');
         }
 
-        const newPathname = `${location.pathname}?${searchParams.toString()}`
+        const newPathname = `${pathname}?${params.toString()}`
 
-        router.push(newPathname);
+        router.push(newPathname, { scroll: false });        // false를 주면 스크롤이 고정됨.
     }
 
     const handleModelChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +51,7 @@ const SearchBar: FC = () => {
     }
 
     return (
-        <form className='relative flex items-center lg:gap-4 lg:justify-start w-full max-w-2xl px-2 py-0.5 sm:px-4 sm:py-1 text-black rounded-lg sm:rounded-full max-sm:gap-2 max-sm:flex-col bg-slate-300 max-md:p-3.5' onSubmit={handleSearch}>
+        <form className='relative flex flex-[1.3] items-center lg:gap-4 lg:justify-start w-full max-w-2xl px-2 py-0.5 sm:px-4 sm:py-1 text-black rounded-md sm:rounded-full max-sm:gap-2 max-sm:flex-col bg-slate-300 max-md:p-3.5' onSubmit={handleSearch}>
             <div className='flex items-center justify-start flex-1 w-full'>
                 <SearchManufacturer manufacturer={manufacturer} setManufacturer={setManufacturer} />
                 <button className='flex items-center justify-center cursor-pointer bg-inherit sm:hidden' type='submit'>

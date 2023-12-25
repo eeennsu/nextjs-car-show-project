@@ -71,7 +71,7 @@ const CarDetails: FC<Props> = ({ car, isOpen, setClose }) => {
                                     <h2 className='text-xl font-semibold capitalize'>
                                         {car.make} {car.model}
                                     </h2>
-                                    <div className='flex flex-wrap gap-4 overflow-y-auto max-h-[24dvh] style__scr'>
+                                    <div className='flex flex-wrap gap-4 overflow-y-auto max-h-[24dvh] style__scroll'>
                                         {
                                             Object.entries(car).map(([key, value]) => (
                                                 <CarInfo key={key} title={key} value={value} />

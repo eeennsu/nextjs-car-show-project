@@ -42,8 +42,8 @@ export const manufacturers = [
     'Volvo',
 ];
   
-export const yearsOfProduction = [
-    { title: 'Year', value: '' },
+export const yearsOfProduction: FilterOption[] = [
+    { title: '2014', value: '2014' },
     { title: '2015', value: '2015' },
     { title: '2016', value: '2016' },
     { title: '2017', value: '2017' },
@@ -56,10 +56,10 @@ export const yearsOfProduction = [
     { title: '2024', value: '2024' },
 ];
   
-export const fuels = [
+export const fuels: FilterOption[]  = [
     {
         title: 'Fuel',
-        value: '',
+        value: 'Fuel',
     },
     {
         title: 'Gas',

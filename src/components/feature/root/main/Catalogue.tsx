@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import SearchBar from './SearchBar';
 import CustomFilter from './CustomFilter';
+import { fuels, yearsOfProduction } from '@/constants';
 
 const Catalogue: FC = () => {
 
@@ -14,11 +15,11 @@ const Catalogue: FC = () => {
                     Exlore the cars you might like
                 </p>
             </div>
-            <div className='flex flex-col items-center justify-between w-full mt-12 md:flex-row'>
+            <div className='flex flex-col items-center justify-between w-full mt-12 md:flex-row max-sm:gap-4'>
                 <SearchBar />
-                <div className='flex flex-wrap items-center justify-start gap-2'>
-                    <CustomFilter title='fuel' />
-                    <CustomFilter title='year' />
+                <div className='flex flex-wrap justify-center md:justify-end flex-[0.7] gap-4 w-full h-full'>
+                    <CustomFilter title='fuel' options={fuels} />
+                    <CustomFilter title='year' options={yearsOfProduction} />
                 </div>
             </div>
         </section>  
