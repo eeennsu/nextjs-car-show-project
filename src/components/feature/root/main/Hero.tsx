@@ -23,7 +23,7 @@ const Hero: FC = () => {
             {/* desktop */}
             <div className='relative items-end justify-end flex-[1.3] hidden lg:flex -top-20 m'>
                 <div className='z-0 w-full'>
-                    <Image src='/images/car.png' alt='car' fill sizes='100%' className='object-contain' />
+                    <Image src='/images/car.png' alt='car' fill sizes='100%' className='object-contain' draggable={false} />
                 </div>               
                 <div className='absolute w-full scale-105 bg-repeat-round h-2/3 -z-10 left-24 top-24' style={{ backgroundImage: `url('/images/car-back.png')` }} />
             </div> 
@@ -31,7 +31,7 @@ const Hero: FC = () => {
             {/* mobile */}
             <div className='relative flex items-end justify-end flex-1 mt-5 lg:hidden xl:min-h-dvh'>
                 <div className='relative z-0 flex justify-center w-full'>
-                    <Image src='/images/car.png' alt='car' width={330} height={330} className='object-contain' />
+                    <Image src='/images/car.png' alt='car' width={330} height={330} className='object-contain' draggable={false}  />
                 </div>               
                 <div className='absolute w-full h-full scale-90 bg-repeat-round -z-10 left-4 rotate-[360deg] xl:min-h-dvh' style={{ backgroundImage: `url('/images/car-back.png')` }} />
             </div> 

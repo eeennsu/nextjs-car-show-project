@@ -1,11 +1,13 @@
 'use client';
 
 import type { FC } from 'react';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { GoListUnordered } from "react-icons/go";
 import { BsCheckAll } from "react-icons/bs";
 import Image from 'next/image';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { updateSearchParams } from '@/utils/car';
 
 type Props = {
     title: string;
@@ -13,11 +15,17 @@ type Props = {
 }
 
 const CustomFilter: FC<Props> = ({ title, options }) => {
+
+    const router = useRouter();
     
     const [selectedOption, setSelectedOption] = useState<FilterOption['value']>(options?.at(0)?.value || 'Electricty');
 
     const handleSelectedOption = (value: string) => {   
         setSelectedOption(value);
+
+        const newPathname = updateSearchParams(title, value.toLowerCase());
+
+        router.push(newPathname, { scroll: false });
     }
 
     return (
@@ -33,19 +41,19 @@ const CustomFilter: FC<Props> = ({ title, options }) => {
                 </Listbox.Button>
                 <Transition
                     as={Fragment}
-                    enter='transition ease-out duration-[0.5ms] z-20'
+                    enter='transition ease-out duration-[30ms] z-20'
                     enterFrom='opacity-0'
                     enterTo='opacity-100'
-                    leave='transition ease-in duration-[0.8ms]'
+                    leave='transition ease-in duration-100'
                     leaveFrom='opacity-100'
                     leaveTo='opacity-0'
                 >
-                    <Listbox.Options className='absolute w-full overflow-y-auto shadow-sm top-10 min-w-36 max-h-36 style__scroll'>
+                    <Listbox.Options className='absolute w-full overflow-y-auto rounded-md shadow-sm top-10 min-w-36 max-h-44 style__scroll'>
                         {
                             options.map((option) => (
                                 <Listbox.Option
                                     key={option.title}
-                                    className={({ active }) => `relative z-20 cursor-pointer w-full select-none ${active ? 'bg-slate-600' : 'bg-slate-800 text-white/90'}`}
+                                    className={({ active }) => `relative z-20 cursor-pointer w-full select-none ${active ? 'bg-slate-500' : 'bg-slate-800'}`}
                                     value={option.value}
                                 >
                                     {

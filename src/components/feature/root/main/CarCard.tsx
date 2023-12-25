@@ -16,7 +16,7 @@ const CarCard: FC<Props> = ({ car }) => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isHover, setIsHover] = useState<boolean>(false);
-    const { city_mpg, combination_mpg, cylinders, displacement, drive, fuel_type, highway_mpg, make, model, transmission, year, class: _class } = car;
+    const { city_mpg, drive, make, model, transmission, year, class: _class } = car;
 
     const handleMoalOpen = () => {
         setIsOpen(true);
@@ -35,7 +35,7 @@ const CarCard: FC<Props> = ({ car }) => {
     }
 
     return (
-        <div className='flex flex-col items-start justify-center p-6 text-white/70 transition duration-300 drop-shadow-lg group bg-gradient-to-tr from-slate-500 to-slate-900 hover:scale-[1.04] rounded-lg' onMouseEnter={handleHoverUp} onMouseLeave={handleHoverDown}>
+        <div className='flex flex-col items-start justify-center p-6 transition duration-300 border-2 rounded-lg shadow-lg text-white/70 group bg-gradient-to-bl from-slate-500 border-slate-300/60 to-slate-800 hover:scale-[1.04]' onMouseEnter={handleHoverUp} onMouseLeave={handleHoverDown}>
             <div className='flex items-center justify-between w-full gap-2 mt-2'>
                 <h2 className='relative flex flex-col font-semibold leading-4 capitalize'>
                     <span className='absolute text-sm text-white/75 bottom-0.5 italic'>

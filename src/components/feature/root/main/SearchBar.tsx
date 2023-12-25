@@ -19,6 +19,10 @@ const SearchBar: FC = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
 
+    const handleModelChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+        setModel(target.value);
+    }
+
     const handleSearch = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -46,12 +50,8 @@ const SearchBar: FC = () => {
         router.push(newPathname, { scroll: false });        // false를 주면 스크롤이 고정됨.
     }
 
-    const handleModelChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
-        setModel(target.value);
-    }
-
     return (
-        <form className='relative flex flex-[1.3] items-center lg:gap-4 lg:justify-start w-full max-w-2xl px-2 py-0.5 sm:px-4 sm:py-1 text-black rounded-md sm:rounded-full max-sm:gap-2 max-sm:flex-col bg-slate-300 max-md:p-3.5' onSubmit={handleSearch}>
+        <form className='relative flex flex-[1.3] items-center lg:gap-4 lg:justify-start w-full max-w-2xl px-2 py-0.5 sm:px-4 sm:py-1 text-black rounded-md sm:rounded-full max-sm:gap-2 max-sm:flex-col bg-slate-300 max-md:py-3.5' onSubmit={handleSearch}>
             <div className='flex items-center justify-start flex-1 w-full'>
                 <SearchManufacturer manufacturer={manufacturer} setManufacturer={setManufacturer} />
                 <button className='flex items-center justify-center cursor-pointer bg-inherit sm:hidden' type='submit'>

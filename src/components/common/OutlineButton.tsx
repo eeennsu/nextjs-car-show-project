@@ -11,7 +11,7 @@ type Props = {
 const OutlineButton: FC<PropsWithChildren<Props>> = ({ children, onClick, size = 'medium' }) => {
     
     return (
-        <MuiButton className='text-black bg-white shadow-sm border-black hover:border-white hover:bg-black/15 hover:text-white' variant='outlined' size={size} onClick={onClick}>
+        <MuiButton className='text-black border-black shadow-sm bg-slate-200 hover:border-white hover:bg-black/15 hover:text-white' variant='outlined' size={size} onClick={onClick}>
             {children}
         </MuiButton>
     );

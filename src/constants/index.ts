@@ -43,7 +43,7 @@ export const manufacturers = [
 ];
   
 export const yearsOfProduction: FilterOption[] = [
-    { title: '2014', value: '2014' },
+    { title: 'Year', value: '' },
     { title: '2015', value: '2015' },
     { title: '2016', value: '2016' },
     { title: '2017', value: '2017' },
@@ -59,7 +59,7 @@ export const yearsOfProduction: FilterOption[] = [
 export const fuels: FilterOption[]  = [
     {
         title: 'Fuel',
-        value: 'Fuel',
+        value: '',
     },
     {
         title: 'Gas',

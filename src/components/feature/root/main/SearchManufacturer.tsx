@@ -59,18 +59,18 @@ const SearchManufacturer: FC<Props> = ({ manufacturer, setManufacturer }) => {
                 >
                     {
                         query !== '' && (
-                            <Combobox.Options className='absolute z-10 flex flex-col w-full gap-y-0.5 px-1 py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg top-10 absoulte max-h-36 lg:max-h-56 ring ring-black ring-opacity-5 focus:outline-none sm:text-sm max-w-72'>
+                            <Combobox.Options className='absolute z-10 flex flex-col w-full mt-1 overflow-auto rounded-md shadow-lg top-10 absoulte max-h-36 lg:max-h-56 ring ring-black ring-opacity-5 focus:outline-none max-w-72 style__scroll'>
                                 {
                                     (filteredManufactures?.length === 0 && query !== '') ? (
-                                        <Combobox.Option className='px-2' value={query}>
+                                        <Combobox.Option className='px-2 text-white/80 bg-slate-800 py-1.5 pl-2' value={query}>
                                             Create &quot;{query}&ldquo;
                                         </Combobox.Option>
                                     ) : filteredManufactures?.map((item) => (
-                                        <Combobox.Option key={item} className={({ active }) => `relative ${active ? 'bg-gray-600 text-white' : 'text-black'}`} value={item}>
+                                        <Combobox.Option key={item} className={({ active }) => `relative text-white/80 pl-2 ${active ? 'bg-gray-500' : 'bg-slate-800'}`} value={item}>
                                             {
                                                 ({ selected, active }) => (
-                                                    <div className='px-2 cursor-pointer'>
-                                                        <span className={`block truncate ${selected ? 'font-bold' : 'font-semibold'}`}>
+                                                    <div className='px-2 cursor-pointer py-1.5'>
+                                                        <span className={`block truncate`}>
                                                             {item}
                                                         </span>
                                                         {

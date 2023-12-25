@@ -14,11 +14,11 @@ type Car = {
 }
 
 type CarSearchParams = {
-    manufacturer?: string;
-    year?: string;
-    fuel?: string;
-    limit?: string;
-    model?: string;
+    manufacturer: string;
+    year: string;
+    fuel: string;
+    limit: string;
+    model: string;
 }
 
 type FilterOption = {
