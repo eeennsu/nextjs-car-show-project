@@ -24,7 +24,7 @@ const CustomFilter: FC<Props> = ({ title, options }) => {
         setSelectedOption(value);
 
         const newPathname = updateSearchParams(title, value.toLowerCase());
-
+        //
         router.push(newPathname, { scroll: false });
     }
 
