@@ -1,9 +1,8 @@
-import { fetchCars } from '@/lib/fetch';
 import type { FC } from 'react';
+import { fetchCars } from '@/lib/fetch';
 import NoResult from './NoResult';
 import CarCard from './CarCard';
 import ShowMore from './ShowMore';
-import { dummy } from '@/constants';
 
 type Props = {
     searchParams: CarSearchParams;

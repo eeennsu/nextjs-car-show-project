@@ -5,9 +5,9 @@ import { Fragment, useEffect, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { GoListUnordered } from "react-icons/go";
 import { BsCheckAll } from "react-icons/bs";
-import Image from 'next/image';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { updateSearchParams } from '@/utils/car';
+import Image from 'next/image';
 
 type Props = {
     title: string;

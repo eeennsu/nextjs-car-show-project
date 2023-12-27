@@ -1,7 +1,7 @@
 import type { Dispatch, FC, ChangeEvent, SetStateAction } from 'react';
+import { Input as MuiInput } from '@mui/material';
 import { useState, Fragment } from 'react';
 import { TbBrandFlickr } from "react-icons/tb";
-import { Input as MuiInput } from '@mui/material';
 import { Combobox, Transition } from '@headlessui/react';
 import { manufacturers } from '@/constants';
 

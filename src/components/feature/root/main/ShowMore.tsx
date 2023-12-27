@@ -1,9 +1,9 @@
 'use client';
 
-import OutlineButton from '@/components/common/OutlineButton';
+import type { FC } from 'react';
 import { updateSearchParams } from '@/utils/car';
 import { useRouter } from 'next/navigation';
-import type { FC } from 'react';
+import OutlineButton from '@/components/common/OutlineButton';
 
 type Props = {
     curPage: number;
