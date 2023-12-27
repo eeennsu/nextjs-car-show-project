@@ -7,10 +7,10 @@ import type { FC } from 'react';
 
 type Props = {
     curPage: number;
-    hasNextData: boolean | undefined;
+    isNext: boolean | undefined;
 }
 
-const ShowMore: FC<Props> = ({ curPage, hasNextData }) => {
+const ShowMore: FC<Props> = ({ curPage, isNext }) => {
 
     const router = useRouter();
 
@@ -21,7 +21,7 @@ const ShowMore: FC<Props> = ({ curPage, hasNextData }) => {
         router.push(newPathname, { scroll: false });
     }
 
-    if (!hasNextData) {
+    if (isNext) {
         return null;
     }
 
