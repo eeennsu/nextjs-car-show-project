@@ -115,7 +115,7 @@ export const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'a',
-        'year': 1999
+        'year': 1992
     },
     {
         'city_mpg': 23,
@@ -129,7 +129,7 @@ export const dummy = [
         'make': 'toyota',
         'model': 'corolla',
         'transmission': 'm',
-        'year': 2007
+        'year': 2001
     },
     {
         'city_mpg': 23,
