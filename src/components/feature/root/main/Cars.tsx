@@ -19,7 +19,7 @@ const Cars: FC<Props> = async ({ searchParams }) => {
     });
     
     const isDataEmpty = !Array.isArray(cars) || !cars || cars?.length < 0;
-    console.log(cars);
+
     return (
         <section>
             {

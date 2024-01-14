@@ -1,6 +1,6 @@
-import type { FC, PropsWithChildren } from 'react';
-import Image from 'next/image';
+import type { FC } from 'react';
 import { footerLinks } from '@/constants';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer: FC = () => {
@@ -39,13 +39,13 @@ const Footer: FC = () => {
                 <p className='max-lg:mt-4'>
                     All Rights Reserved &copy;
                 </p>
-                <div className='flex gap-8 2xl:mr-28'>
-                    <div>
+                <div className='flex gap-8 2xl:mr-28 text-sm'>
+                    <p className='hover:underline underline-offset-4 cursor-pointer'>
                         Privacy & Policy
-                    </div>
-                    <div>
+                    </p>
+                    <p className='hover:underline underline-offset-4 cursor-pointer'>
                         Terms & Condition
-                    </div>
+                    </p>
                 </div>                
             </section>
         </footer>
